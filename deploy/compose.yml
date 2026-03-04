@@ -40,7 +40,6 @@ services:
         fi
   
         cd "$$REPO_DIR"
-cd /repo
 
         # Update npm first
         npm install -g npm@latest
