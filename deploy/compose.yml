@@ -41,6 +41,7 @@ services:
   
         cd "$$REPO_DIR"
         HUSKY=0 npm install
+        npm run build
   
         run_mom() {
           npm run dev &
