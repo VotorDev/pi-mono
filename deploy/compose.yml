@@ -41,8 +41,12 @@ services:
   
         cd "$$REPO_DIR"
         HUSKY=0 npm install
-        npm run build
-  
+        # Build only mom's dependency chain
+        npm run build --workspace=packages/ai
+        npm run build --workspace=packages/agent
+        npm run build --workspace=packages/coding-agent
+        npm run build --workspace=packages/mom
+
         run_mom() {
           npm run dev &
           ROOT_PID=$$!
