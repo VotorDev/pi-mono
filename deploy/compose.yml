@@ -40,6 +40,14 @@ services:
         fi
   
         cd "$$REPO_DIR"
+cd /repo
+
+        # Update npm first
+        npm install -g npm@latest
+
+        # Replace tsgo with tsc
+        find packages -name "package.json" -maxdepth 3 | xargs sed -i 's/tsgo/tsc/g'
+
         HUSKY=0 npm install
         # Build only mom's dependency chain
         npm run build --workspace=packages/ai
